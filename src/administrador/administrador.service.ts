@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { isEmail } from 'class-validator';
 import { Model } from 'mongoose';
 import { json } from 'node:stream/consumers';
 import { CreateAdministradorDto } from './dto/create-administrador.dto';
@@ -43,13 +44,20 @@ export class AdministradorService {
 
   async findOne(term: string) {
     let administrador:Administrador;
-    
+
     try {
-      administrador=await this.administradorModel.findOne({_id:term})
+      
+      if (isEmail(term)){
+        administrador=await this.administradorModel.findOne({Correo:term})
+      }else
+      {
+        administrador=await this.administradorModel.findOne({_id:term})
+      }
       return administrador;
     }catch(error){
       return error.message.toJSON();
     }
+    
   }
 
   async update(term: string, updateAdministradorDto: UpdateAdministradorDto) {

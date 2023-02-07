@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { isEmail } from 'class-validator';
 import { json } from 'express';
 import { Model } from 'mongoose';
 import { CreateDocenteDto } from './dto/create-docente.dto';
@@ -50,7 +51,13 @@ export class DocenteService {
     let docente:Docente;
     
     try {
-      docente=await this.docenteModel.findOne({_id:term})
+      
+      if (isEmail(term)){
+        docente=await this.docenteModel.findOne({Correo:term})
+      }else
+      {
+        docente=await this.docenteModel.findOne({_id:term})
+      }
       return docente;
     }catch(error){
       return error.message.toJSON();

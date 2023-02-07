@@ -1,5 +1,4 @@
 
-
 import { Prop,Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { Document} from "mongoose";
 import { CargaAcademica } from "src/carga-academica/entities/carga-academica.entity";
@@ -18,6 +17,8 @@ export class RegistroHora extends Document {
     @Prop()
     ubicacion:string;
 
+
     
 }
 export const CatSchema = SchemaFactory.createForClass(RegistroHora);
+//edraw max

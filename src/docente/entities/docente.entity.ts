@@ -22,5 +22,14 @@ export class Docente extends Document {
     @Prop()
     FormacionAcademica:string;
 
+    @Prop({
+        unique:true,
+        index:true,
+    })
+    Correo:string;
+
+    @Prop()
+    Password:string;
+
 }
 export const DocenteSchema = SchemaFactory.createForClass(Docente);

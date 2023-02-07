@@ -6,6 +6,9 @@ export class Administrador extends Document {
     @Prop()
     Nombre:string;
 
+    @Prop()
+    Apellidos:string;
+
     @Prop({
         unique:true,
         index:true,
@@ -15,7 +18,14 @@ export class Administrador extends Document {
     @Prop()
     Celular:string;
 
-    @Prop()
+    @Prop({
+        unique:true,
+        index:true,
+    })
     Correo:string;
+
+    @Prop()
+    Password:string;
+
 }
 export const AdministradorSchema = SchemaFactory.createForClass(Administrador);

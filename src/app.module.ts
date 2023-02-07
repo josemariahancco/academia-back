@@ -8,6 +8,7 @@ import { FichaAcademicaModule } from './ficha-academica/ficha-academica.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CargaAcademicaModule } from './carga-academica/carga-academica.module';
 import { RegistroHorasModule } from './registro-horas/registro-horas.module';
+import { AuthModule } from './auth/auth.module';
 
 
 @Module({
@@ -22,7 +23,9 @@ import { RegistroHorasModule } from './registro-horas/registro-horas.module';
     FichaAcademicaModule,
     CargaAcademicaModule,
     RegistroHorasModule,
+    AuthModule,
   ],
+  
   
 })
 export class AppModule {}

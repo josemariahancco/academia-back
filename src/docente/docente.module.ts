@@ -11,6 +11,7 @@ import { Docente, DocenteSchema } from './entities/docente.entity';
     { name: Docente.name, 
       schema:DocenteSchema}
   ])],
-
+  exports:[DocenteService]
+  
 })
 export class DocenteModule {}

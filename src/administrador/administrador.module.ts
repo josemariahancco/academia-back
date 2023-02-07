@@ -11,5 +11,6 @@ import { Administrador, AdministradorSchema } from './entities/administrador.ent
     { name: Administrador.name, 
       schema:AdministradorSchema}
   ])],
+  exports:[AdministradorService]
 })
 export class AdministradorModule {}
